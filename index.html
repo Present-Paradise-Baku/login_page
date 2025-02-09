@@ -67,7 +67,7 @@
             text-align: left;
             background-color: transparent;
             overflow-y: auto;
-            counter-reset: list-item 0; 
+            counter-reset: list-item 0;
         }
 
         .links a {
@@ -80,7 +80,12 @@
             border-radius: 10px;
             text-decoration: none;
             color: #002244;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            opacity: 0; /* Başlangıçta gizli */
+            transition: opacity 1s ease-in-out; /* Yavaşça görünmesini sağlamak için */
+        }
+
+        .links a.show {
+            opacity: 1; /* Gösterildiğinde opaklık 1 olacak */
         }
 
         .links a:hover {
@@ -91,8 +96,8 @@
         /* Sıra nömrələri üçün (tərs sıra) */
         .links a::before {
             content: counter(list-item) ". ";
-            counter-increment: list-item 1; 
-            font-weight: bold; 
+            counter-increment: list-item 1;
+            font-weight: bold;
         }
 
         /* Mobil uyğunluq */
@@ -140,6 +145,14 @@
                 // Düzgün məlumat daxil edildikdə login səhifəsini gizlət və linkləri göstər
                 document.getElementById('login').style.display = 'none';
                 document.getElementById('links').style.display = 'block';
+                
+                // Linkləri tək-tək göstərmək
+                var links = document.querySelectorAll('.links a');
+                links.forEach(function(link, index) {
+                    setTimeout(function() {
+                        link.classList.add('show');
+                    }, index * 500); // Her bağlantı için 500ms gecikme
+                });
             } else {
                 alert("Yanlış istifadəçi adı və ya şifrə.");
             }
