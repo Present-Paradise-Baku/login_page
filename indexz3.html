@@ -3,67 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Səhifəsi</title>
+    <title>Present Paradise Baku</title>
     <style>
+        /* Ümumi stil */
         body {
-            background: url('https://raw.githubusercontent.com/Present-Paradise-Baku/login_page/main/static/PPB.jpg') no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
+            height: 100vh;
+            background-image: url('https://raw.githubusercontent.com/Present-Paradise-Baku/ppb/main/static/PPB.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
         }
-        .login-container {
-            background: rgba(255, 255, 255, 0.8);
+
+        /* Linklər bölməsi */
+        .links {
+            width: 100%;
+            height: 100vh;
             padding: 20px;
+            box-sizing: border-box;
+            text-align: left;
+            background-color: transparent;
+            overflow-y: auto;
+            counter-reset: list-item 0; /* Ümumi link sayı + 1 (bu nümunədə 30 link var) */
+        }
+
+        .links a {
+            display: block;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.7);
             border-radius: 10px;
-            text-align: center;
-            width: 300px;
+            text-decoration: none;
+            color: #002244;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        h1 {
-            font-size: 20px;
-            margin-bottom: 20px;
+
+        .links a:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #002244;
         }
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+
+        /* Sıra nömrələri üçün (tərs sıra) */
+        .links a::before {
+            content: counter(list-item) ". "; /* Sıra nömrəsi əlavə et */
+            counter-increment: list-item 1; /* Nömrələri tərsinə çevir */
+            font-weight: bold; /* Nömrələri qalın et */
         }
-        button {
-            width: 100%;
-            padding: 10px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-    </style>
-    <script>
-        function checkLogin() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            if (username === 'admin' && password === 'admin') {
-                window.location.href = 'https://raw.githubusercontent.com/Present-Paradise-Baku/login_page/main/index2.html';
-            } else {
-                alert('İstifadəçi adı və ya şifrə yanlışdır!');
+
+        /* Mobil uyğunluq */
+        @media (max-width: 768px) {
+            .links {
+                padding: 10px;
+            }
+
+            .links a {
+                font-size: 20px;
+                padding: 10px;
             }
         }
-    </script>
+    </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>MÜSABİQƏMİZƏ XOŞ GƏLMİSİNİZ</h1>
-        <p>İstifadəçi adınızı və şifrənizi daxil edin</p>
-        <input type="text" id="username" placeholder="İstifadəçi adı">
-        <input type="password" id="password" placeholder="Şifrə">
-        <button onclick="checkLogin()">Daxil ol</button>
+    <!-- Linklər bölməsi -->
+    <div class="links">
+        <a href="https://www.instagram.com/memmedli__1996/">memmedli__1996</a>
+        <a href="https://www.instagram.com/fagani.mammadli/">Fəqani Məmmədli</a>
+        <a href="https://www.instagram.com/1asadova/">İlahə Əsədova</a>
+        <a href="https://www.instagram.com/raulhuseynli_/">raulhuseynli_</a>
+        <a href="https://www.instagram.com/vasif_rubabe/">vasif_rubabe</a>
+        <a href="https://www.instagram.com/eltac_mv/">eltac_mv</a>
     </div>
 </body>
 </html>
