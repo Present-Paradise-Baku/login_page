@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Səhifəsi</title>
+    <style>
+        body {
+            background: url('https://raw.githubusercontent.com/Present-Paradise-Baku/login_page/main/static/PPB.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+        h1 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+    <script>
+        function checkLogin() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            if (username === 'admin' && password === 'admin') {
+                window.location.href = 'https://raw.githubusercontent.com/Present-Paradise-Baku/login_page/main/index2.html';
+            } else {
+                alert('İstifadəçi adı və ya şifrə yanlışdır!');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h1>MÜSABİQƏMİZƏ XOŞ GƏLMİSİNİZ</h1>
+        <p>İstifadəçi adınızı və şifrənizi daxil edin</p>
+        <input type="text" id="username" placeholder="İstifadəçi adı">
+        <input type="password" id="password" placeholder="Şifrə">
+        <button onclick="checkLogin()">Daxil ol</button>
+    </div>
+</body>
+</html>
