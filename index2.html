@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Present Paradise Baku - Login</title>
+    <style>
+        /* Ümumi stil */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-image: url('https://raw.githubusercontent.com/Present-Paradise-Baku/ppb/main/static/PPB.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Login formu üçün konteyner */
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .login-container h1 {
+            font-size: 28px;
+            color: #002244;
+            margin-bottom: 10px;
+        }
+
+        .login-container p {
+            font-size: 16px;
+            color: #002244;
+            margin-bottom: 20px;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #002244;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #004488;
+        }
+
+        .login-container .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login formu -->
+    <div class="login-container">
+        <h1>Present_paradise_Baku</h1>
+        <p>Müsabiqəmizə qoşulduğunuz üçün təşəkkür edirik.<br>Söz verilən login və şifrəni bilirsinizsə, daxil olun.</p>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="İstifadəçi adı" required>
+            <input type="password" id="password" placeholder="Şifrə" required>
+            <button type="submit">Daxil ol</button>
+        </form>
+        <p class="error-message" id="errorMessage"></p>
+    </div>
+
+    <script>
+        // Login formunun idarə edilməsi
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Formun göndərilməsini dayandır
+
+            // İstifadəçi adı və parolu əldə et
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Uğurlu login üçün yoxlama
+            if (username === 'admin' && password === 'admin') {
+                alert('Uğurla daxil oldunuz!');
+                window.location.href = 'main.html'; // Uğurlu olduqda əsas səhifəyə yönləndir
+            } else {
+                document.getElementById('errorMessage').textContent = 'Yanlış istifadəçi adı və ya şifrə!';
+            }
+        });
+    </script>
+</body>
+</html>
