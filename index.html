@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Present Paradise Baku</title>
+    <style>
+        /* Ümumi stil */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-image: url('https://raw.githubusercontent.com/Present-Paradise-Baku/ppb/main/static/PPB.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        /* Login forması */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .login-form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #002244;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background-color: #004466;
+        }
+
+        /* Linklər bölməsi */
+        .links {
+            display: none; /* Başlanğıcda gizli */
+            width: 100%;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: left;
+            background-color: transparent;
+            overflow-y: auto;
+            counter-reset: list-item 0;
+        }
+
+        .links a {
+            display: block;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            text-decoration: none;
+            color: #002244;
+            opacity: 0; /* Başlangıçta gizli */
+            transition: opacity 1s ease-in-out; /* Yavaşça görünmesini sağlamak için */
+        }
+
+        .links a.show {
+            opacity: 1; /* Gösterildiğinde opaklık 1 olacak */
+        }
+
+        .links a:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #002244;
+        }
+
+        /* Sıra nömrələri üçün (tərs sıra) */
+        .links a::before {
+            content: counter(list-item) ". ";
+            counter-increment: list-item 1;
+            font-weight: bold;
+        }
+
+        /* Mobil uyğunluq */
+        @media (max-width: 768px) {
+            .links {
+                padding: 10px;
+            }
+
+            .links a {
+                font-size: 20px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login səhifəsi -->
+    <div id="login" class="login-container">
+        <div class="login-form">
+            <h2>MÜSABİQƏMİZƏ XOŞ GƏLMİSİNİZ</h2>
+            <input type="text" id="username" placeholder="İstifadəçi adı" />
+            <input type="password" id="password" placeholder="Şifrə" />
+            <button onclick="login()">Daxil ol</button>
+        </div>
+    </div>
+
+    <!-- Linklər bölməsi -->
+    <div id="links" class="links">
+        <a href="https://www.instagram.com/1asadova/">1asadova</a>
+        <a href="https://www.instagram.com/memmedli__1996/">memmedli__1996</a>
+        <a href="https://www.instagram.com/afatmammadova8/">afatmammadova8</a>
+    </div>
+
+    <script>
+        // "Enter" düyməsi ilə login funksiyasını işə salmaq
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                login();
+            }
+        });
+
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username === "admin" && password === "admin") {
+                // Düzgün məlumat daxil edildikdə login səhifəsini gizlət və linkləri göstər
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('links').style.display = 'block';
+                
+                // Linkləri tək-tək göstərmək
+                var links = document.querySelectorAll('.links a');
+                links.forEach(function(link, index) {
+                    setTimeout(function() {
+                        link.classList.add('show');
+                    }, index * 500); // Her bağlantı için 500ms gecikme
+                });
+            } else {
+                alert("Yanlış istifadəçi adı və ya şifrə.");
+            }
+        }
+    </script>
+</body>
+</html>
